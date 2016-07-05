@@ -1,0 +1,180 @@
+<form layout="column" layout-padding ng-submit="applyFilter(filters, 'configurations')">
+	<md-list layout="column">
+        <md-list-item>
+			 <md-input-container>
+				<label>Property Type</label>
+				<md-select 
+					ng-model="filters.configurations.propertyType"
+					ng-init="filters.configurations.propertyType = local.configurations.propertyType">
+					<md-option
+						ng-repeat="property in properties"
+						ng-value = "property | camelCaseToHuman">
+						{{property | camelCaseToHuman}}
+					</md-option>
+				</md-select>
+			 </md-input-container>
+        </md-list-item>
+        <p>Type (BHK):</p>
+        <md-list-item >
+             <p>1 BHK</p>
+	    	 <md-checkbox 
+				ng-false-value="null"
+				ng-init="filters.configurations.type.BHK1 = local.configurations.type.BHK1"
+				ng-model="filters.configurations.type.BHK1" 
+				class="md-secondary">
+			</md-checkbox>
+        </md-list-item>
+        <md-list-item >
+             <p> 2 BHK</p>
+			<md-checkbox 
+				ng-false-value="null"
+				ng-init="filters.configurations.type.BHK2 = local.configurations.type.BHK2"
+				ng-model="filters.configurations.type.BHK2" 
+				class="md-secondary">
+				
+			</md-checkbox>
+        </md-list-item>
+        <md-list-item >
+             <p> 3 BHK</p>
+	    	 <md-checkbox 
+				ng-false-value="null"
+				ng-init="filters.configurations.type.BHK3 = local.configurations.type.BHK3"
+				ng-model="filters.configurations.type.BHK3" 
+				class="md-secondary">
+				
+			</md-checkbox>
+        </md-list-item>
+        <md-list-item >
+             <p> 4 BHK</p>
+	    	 <md-checkbox 
+				ng-false-value="null"
+				ng-init="filters.configurations.type.BHK4 = local.configurations.type.BHK4"
+				ng-model="filters.configurations.type.BHK4" 
+				class="md-secondary">
+				
+			</md-checkbox>
+        </md-list-item>
+        <md-list-item >
+             <p> 5 BHK</p>
+	    	 <md-checkbox 
+				ng-false-value="null"
+				ng-init="filters.configurations.type.BHK5 = local.configurations.type.BHK5"
+				ng-model="filters.configurations.type.BHK5" 
+				class="md-secondary">
+			</md-checkbox>
+        </md-list-item>
+		<md-subheader></md-subheader>
+        <md-list-item>
+            <md-input-container flex layout-align="center center">
+				<label>Price</label>
+				<input 
+					type="number" 
+					ng-model="filters.configurations.price" 
+					ng-init="filters.configurations.price = local.configurations.price" 
+					class="md-primary">
+			</md-input-container>
+		</md-list-item>
+		<md-list-item>
+			<md-radio-group 
+				layout="row" 
+				ng-model="filters.configurations.priceLevel"
+				ng-init="filters.configurations.priceLevel = local.configurations.priceLevel">
+				<md-radio-button value="high">High</md-radio-button>
+				<md-radio-button value="medium">Med</md-radio-button>
+				<md-radio-button value="low">Low</md-radio-button>
+			</md-radio-group>
+			<!--<p>High</p>
+			<md-checkbox
+				ng-false-value="null"
+				ng-init="filters.configurations.priceLevel.high = local.configurations.priceLevel.high" 
+				ng-model="filters.configurations.priceLevel.high"
+				class="md-secondary">
+			</md-checkbox>-->
+		</md-list-item>
+		<!--<md-list-item>
+		  <p>Medium</p>
+			<md-checkbox
+				ng-false-value="null"
+				ng-init="filters.configurations.priceLevel.medium = local.configurations.priceLevel.medium" 
+				ng-model="filters.configurations.priceLevel.medium"
+				class="md-secondary">
+			</md-checkbox>
+		</md-list-item>-->
+		<!--<md-list-item>
+		  <p>Low</p>
+			<md-checkbox
+				ng-false-value="null"
+				ng-init="filters.configurations.priceLevel.low = local.configurations.priceLevel.low" 
+				ng-model="filters.configurations.priceLevel.low"
+				class="md-secondary">
+			</md-checkbox>
+		</md-list-item>-->
+		<md-subheader></md-subheader>
+		<md-list-item>
+            <md-input-container flex layout-align="center center">
+				<label>Area</label>
+				<input 
+					type="text" 
+					ng-model="filters.configurations.area" 
+					ng-init="filters.configurations.area = local.configurations.area" 
+					class="md-primary">
+			</md-input-container>
+		</md-list-item>
+		<md-list-item>
+			<md-radio-group 
+				layout="row" 
+				ng-model="filters.configurations.areaLevel"
+				ng-init="filters.configurations.areaLevel = local.configurations.areaLevel">
+				<md-radio-button value="high">High</md-radio-button>
+				<md-radio-button value="medium">Med</md-radio-button>
+				<md-radio-button value="low">Low</md-radio-button>
+			</md-radio-group>
+			<!--<p>High</p>
+			<md-checkbox
+				ng-false-value="null"
+				ng-init="filters.configurations.areaLevel.high = local.configurations.areaLevel.high" 
+				ng-model="filters.configurations.areaLevel.high"
+				class="md-secondary">
+			</md-checkbox>-->
+		</md-list-item>
+		<!--<md-list-item>
+		  <p>Medium</p>
+			<md-checkbox
+				ng-false-value="null"
+				ng-init="filters.configurations.areaLevel.medium = local.configurations.areaLevel.medium" 
+				ng-model="filters.configurations.areaLevel.medium"
+				class="md-secondary">
+			</md-checkbox>
+		</md-list-item>
+		<md-list-item>
+		  <p>Low</p>
+			<md-checkbox
+				ng-false-value="null"
+				ng-init="filters.configurations.areaLevel.low = local.configurations.areaLevel.low" 
+				ng-model="filters.configurations.areaLevel.low"
+				class="md-secondary">
+			</md-checkbox>
+		</md-list-item>-->
+        <md-list-item >
+        </md-list-item>
+        <md-list-item>
+             <p>Store Room</p>
+	    	 <md-checkbox
+				ng-false-value="null"
+				ng-init="filters.configurations.storeRoom = local.configurations.storeRoom" 
+				ng-model="filters.configurations.storeRoom"
+				class="md-secondary">
+			</md-checkbox>
+        </md-list-item>
+		<md-list-item>
+             <p>Servant Room</p>
+	    	 <md-checkbox
+				ng-false-value="null"
+				ng-init="filters.configurations.servantRoom = local.configurations.servantRoom" 
+				ng-model="filters.configurations.servantRoom"
+				class="md-secondary">
+			</md-checkbox>
+        </md-list-item>
+        <md-button layout-align="center center" type="submit" class="md-raised md-primary">Apply</md-button>
+    </md-list>
+</form>

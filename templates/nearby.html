@@ -1,0 +1,29 @@
+<form name="nearbyForm" layout="column" layout-padding ng-submit="applyFilter(filters, 'nearby')">
+    <md-input-container>
+        <md-icon>search</md-icon>
+        <input 
+            type="text" 
+            ng-model="filters.nearby.location"
+            ng-init="filters.nearby.location = local.nearby.location">
+    </md-input-container>
+    <div layout="column">
+        <md-radio-group ng-model="filters.nearby.searchParam" ng-init="filters.nearby.searchParam = local.nearby.searchParam">
+            <md-radio-button value="distance" class="md-primary" >Distance</md-radio-button>
+            <md-input-container ng-show="filters.nearby.searchParam=='distance'">
+                <label>Enter Distance in Km</label>
+                <input ng-model="filters.nearby.value" type="number" step=1 ng-init="filters.nearby.value = local.nearby.value">
+            </md-input-container>
+            <md-radio-button value="time" class="md-primary"> Time </md-radio-button>
+            <md-input-container ng-show="filters.nearby.searchParam=='time'">
+                <label>Enter Distance in min</label>
+                <input ng-model="filters.nearby.value" type="number"  step=1 ng-init="filters.nearby.value = local.nearby.value">
+            </md-input-container>
+        </md-radio-group>
+    </div>
+    <md-button type="submit" class="md-raised md-primary">Submit</md-button>
+    <md-button ng-click="clearForm('nearbyForm', 'nearby')" class="md-raised md-secondary">Reset</md-button>
+</form>
+
+
+
+

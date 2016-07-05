@@ -1,0 +1,221 @@
+body{
+	margin:0px;	
+	overflow-x: hidden;
+}
+
+.leftBlock{
+}
+.midBlock{
+}
+.rightBlock{
+	
+}
+/*headers css */
+
+.noStickyHeader{
+	background-color: #99bbff;
+	height: 40px;
+	line-height: 35px;
+	text-align:center;
+	color: white;
+	font-weight: normal;
+	font-size: 23px;
+}
+
+
+/*leftBlock ------ listing users and their status*/
+div.userListControl{
+	height: 100%;
+}
+
+div.userList { 
+	height: 93%;
+	overflow-y: scroll;
+}
+
+.userList h2 {
+  font: 400 40px/1.5 Helvetica, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.userList ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.userList li.userItemActive {
+  font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  background-color:#B9E937;
+  border-radius:7px;
+  min-height:35px;
+}
+.userList li.userItemInactive {
+  font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  background-color:#dddddd;
+  border-radius:7px;
+}
+
+.userList li:last-child {
+  border-bottom:1px inset;
+
+}
+
+/*just for showing the chatting.... text*/
+.userList .userItemActive a{
+	float:left;
+	width:60%;
+}
+.userList .userItemActive h5{
+	color:green;
+	margin:0px;
+	text-align:right;l
+	ine-height:22px;
+	padding-top:10px;
+	font-size:10px;
+}
+.userList li a {
+  text-decoration: none;
+  text-indent: 10px;
+
+  border-radius: 0.05px;
+  display: block;
+  width: 70%;
+  color: #424242;
+
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+.userList li a:hover {
+  font-size: 27px;  
+}
+
+.userList li:hover{
+	 padding-bottom:10px;
+}
+
+/*midBlock ---- chat and suggestions lowerMidBlock CSS*/
+.chatBlock{
+	width: 100%;
+}
+.chatBlock input{
+	width: 80%;
+}
+
+.sendChatIcon{
+	clear: left;
+}
+
+
+.abcone{
+	font-size: 17px;
+	width: 55%;
+	border-radius: 5px;
+	border-top-left-radius:0px;
+	border-bottom-left-radius:10px;
+	box-shadow: 0.5px 0.2px 5px #aaaaaa;
+	margin-left: 10px;
+	clear: right;
+	float: left;
+	margin-bottom: 5px;
+	color: #7f7f7f;
+	background-color:#f0f0f0;
+}
+.abctwo{
+	font-size: 17px;
+	width: 55%;
+	border-radius: 5px;
+	border-top-right-radius:0px;
+	border-bottom-right-radius:10px;
+	box-shadow: 0.5px 0.2px 5px #aaaaaa;
+	clear: left;
+	float: right;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	color: #8070ff;
+	background-color:#ddeed0;
+}
+.abcone img{
+	width: 20px;
+	height: 20px;
+	margin-right:10px;
+	float: left;
+	border-radius: 10px;
+}
+.abctwo img{
+	width: 20px;
+	height: 20px;
+	margin-left:10px;
+	float: right;
+	border-radius: 10px;
+}
+.abcone p{
+	text-align:left;
+	margin-left: 25px;
+	margin-bottom: 5px;
+	margin-top:5px; 
+}
+.abctwo p{
+	text-align:right;
+	margin-right: 25px;
+	margin-bottom: 5px;
+	margin-top:5px; 
+}
+
+.midBlock .upperMidBlock .chatBox{
+	height: 55%;
+	overflow-y: scroll;
+	overflow-x: hidden; 
+}
+
+/*suggestions css*/
+
+ul.suggestionList{
+	width: 100%;
+	height: 26%;
+	overflow-y: scroll;
+	overflow-x:hidden;
+	margin:0px 0px 0px -40px;
+	font-size: 18px;
+}
+.suggestionList .suggestionItem{
+	background-color: #efefef;
+	padding: 10px 0px 5px 20px;
+	list-style-type: none;
+}
+.suggestionList .suggestionItem a{
+	font-size: 15px;
+	text-decoration:none;
+	color: #aa99aa;
+}
+ul.suggestionList li:hover{
+	background-color: #cfcfcf;
+	padding: 15px 0px 10px 20px;
+	font-size: 22px;
+}
+
+
+
+
+/*rightBlock----- listing css*/
+.rightListingBlock{
+	height: 90%;
+	min-height: 600px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+}
+
+
+md-list-item {
+	height: 50px;
+}

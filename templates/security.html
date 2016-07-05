@@ -1,0 +1,71 @@
+<form ng-submit="applyFilter(filters, 'security')">
+    <md-list layout="column">
+        <md-subheader>Main Gate</md-subheader>
+        <md-list-item>
+            <p>Gaurds</p>
+            <md-checkbox
+                ng-false-value="null"
+                ng-model="filters.security.mainGate.guards"
+                ng-init="filters.security.mainGate.guards = local.security.mainGate.guards"
+                class="md-secondary">
+            </md-checkbox>
+        </md-list-item>
+        <md-list-item>
+            <p>Boom Barriers</p>
+            <md-checkbox
+                ng-false-value="null"
+                ng-model="filters.security.mainGate.boomBarriers"
+                ng-init="filters.security.mainGate.boomBarriers = local.security.mainGate.boomBarriers"
+                class="md-secondary">
+            </md-checkbox>
+        </md-list-item>
+        <md-list-item>
+            <p>Intercom</p>
+            <md-checkbox
+                ng-false-value="null"
+                ng-model="filters.security.mainGate.intercom"
+                ng-init="filters.security.mainGate.intercom = local.security.mainGate.intercom"
+                class="md-secondary">
+            </md-checkbox>
+        </md-list-item>
+        <md-list-item>
+            <p>CCTV</p>
+            <md-checkbox
+                ng-false-value="null"
+                ng-model="filters.security.mainGate.cctv"
+                ng-init="filters.security.mainGate.cctv = local.security.mainGate.cctv"
+                class="md-secondary">
+            </md-checkbox>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-subheader>Tower</md-subheader>
+        <md-list-item>
+            <p>Access Controlled</p>
+            <md-checkbox
+                ng-false-value="null"
+                ng-model="filters.security.tower.accessControlled"
+                ng-init="filters.security.tower.accessControlled = local.security.tower.accessControlled"
+                class="md-secondary">
+            </md-checkbox>
+        </md-list-item>
+        <md-list-item>
+            <p>Guards</p>
+            <md-checkbox
+                ng-false-value="null"
+                ng-model="filters.security.tower.guards"
+                ng-init="filters.security.tower.guards = local.security.tower.guards"
+                class="md-secondary">
+            </md-checkbox>
+        </md-list-item>
+        <md-list-item>
+            <p>CCTV</p>
+            <md-checkbox
+                ng-false-value="null"
+                ng-model="filters.security.tower.cctv"
+                ng-init="filters.security.tower.cctv = local.security.tower.cctv"
+                class="md-secondary">
+            </md-checkbox>
+        </md-list-item>
+        <md-button layout-align="center center" type="submit" class="md-raised md-primary">Apply</md-button>
+    </md-list>
+</form>

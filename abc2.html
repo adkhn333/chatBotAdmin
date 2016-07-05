@@ -1,0 +1,52 @@
+
+<div layout="row">
+  <div flex=20 class="leftBlock">
+      <div class="noStickyHeader" align="center">Users</div>
+        <md-list flex>
+          <md-list-item  
+          ng-repeat="item in users" 
+          ng-click="null" 
+          ng-class="{{item.status}}=={{statusId}} ? 'bgCurrentUser': 'bgRequestingUser';">
+              {{item.name}}<p align="right"><h6 ng-if="item.id==curFlag">Chatting...</h6></p>
+          </md-list-item>
+        </md-list>
+      </div>
+  </div>
+  <div flex=45 layout="column" class="midBlock">
+      <div flex=40 class="upperMidBlock">
+        <div class="noStickyHeader" align="center">Chats</div>
+        <div class="chatBox">
+            <md-list >
+              <md-item ng-repeat="item in chat">
+                <md-item-content >
+                  <div ng-class="{{item.id}}=={{chkId}} ? 'abcone' : 'abctwo' ;">
+                    <img alt="{{ person.name }}" src="img/user.png" ng-if="item.id==chkId && item.id!=chat[$index-1].id " class="md-avatar"  />
+                    <img alt="{{ person.name }}" src="img/admin.png" ng-if="item.id!=chkId && item.id!=chat[$index-1].id " class="md-avatar" />
+                    <p>{{ item.msg }}</p>
+                  </div>
+                </md-item-content>
+              </md-item>
+            </md-list>
+        </div>
+      </div>
+      <div flex=30 class="midMidBlock">
+         <div  class="suggestionBox" ng-cloak>
+            <ul class="suggestionList" onload="moveWin()">
+                <li class="suggestionItem" ng-click="" ng-repeat="item in suggestions"><a href="#">{{item}}</a></li>
+            </ul>
+          </div>
+      </div>
+      <div flex=20 class="lowerMidBlock">
+        <md-input-container class="md-block chatBlock ">
+          <form ng-submit="saveChat()">
+          <input  ng-model="msg" type="text" placeholder="Type your message..." >
+          <md-button type="submit" class="md-fab" aria-label="ChatSendButton"><ng-md-icon class="sendChatIcon" icon="send" style="fill:#00aaff" size="30"></ng-md-icon> </md-button>
+          </form>
+        </md-input-container>
+      </div>    
+  </div>
+  <div flex=25 class="rightBlock">
+    
+  </div>
+</div>
+

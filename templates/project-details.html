@@ -1,0 +1,180 @@
+<form ng-submit="applyFilter(filters, 'projectDetails')">
+    <md-list layout="column">
+        <md-list-item>
+            <md-input-container flex layout-align="center center">
+				<label>Project Name</label>
+				<input 
+					type="text" 
+					ng-model="filters.projectDetails.projectName" 
+					ng-init="filters.projectDetails.projectName = local.projectDetails.projectName" 
+					class="md-primary">
+			</md-input-container>
+        </md-list-item>
+        <md-list-item>
+            <md-input-container flex layout-align="center center">
+				<label>Builder</label>
+				<input 
+					type="text" 
+					ng-model="filters.projectDetails.builder" 
+					ng-init="filters.projectDetails.builder = local.projectDetails.builder" 
+					class="md-primary">
+			</md-input-container>
+        </md-list-item>
+        <md-subheader>Address</md-subheader>
+        <md-list-item>
+			 <md-input-container flex>
+				<label>City</label>
+				<md-select 
+					ng-model="filters.projectDetails.address.city"
+                    ng-init="filters.projectDetails.address.city = local.projectDetails.address.city"
+                    >
+					<md-option
+						ng-repeat="city in cities"
+                        ng-value="city.cityId"
+                        ng-click="fillZonesAndLocations(city.cityId)"
+                        >
+						{{city.cityName}}
+					</md-option>
+				</md-select>
+			 </md-input-container>
+        </md-list-item>
+        <md-subheader>Zone</md-subheader>
+        <md-list-item>
+            <md-input-container flex class="md-block">
+                <label>Zone Name</label>
+                <input type="text" name="name" ng-model="zoneFilter">
+            </md-input-container>
+        </md-list-item>
+        <div style="height: 100px; overflow-y: scroll">
+            <md-list-item flex ng-repeat="zone in zones | filter: zoneFilter">
+                <p>{{zone.zoneName}}</p>
+                <md-checkbox
+                    ng-model="filters.projectDetails.address.zone[zone.zoneId]"
+                    ng-init="filters.projectDetails.address.zone[zone.zoneId] = local.projectDetails.address.zone[zone.zoneId]"
+                    ng-false-value="null"
+                    class="md-secondary">
+                </md-checkbox>
+                <!--<md-input-container flex>
+                    <label>Zone</label>
+                    <md-select 
+                        ng-model="filters.projectDetails.address.zone"
+                        ng-init="filters.projectDetails.address.zone = local.projectDetails.address.zone">
+                        <md-option
+                            ng-repeat="zone in zones"
+                            ng-value="zone.zoneId"
+                            ng-click="fillLocations(filters.projectDetails.address.city, zone.zoneId)"
+                            >
+                            {{zone.zoneName}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>-->
+            </md-list-item>
+        </div>
+        <md-subheader>Location</md-subheader>
+        <md-list-item>
+            <md-input-container flex class="md-block">
+                <label>Location Name</label>
+                <input type="text" name="name" ng-model="locationFilter">
+            </md-input-container>
+        </md-list-item>
+        <div style="height: 100px; overflow-y: scroll">
+            <md-list-item flex ng-repeat="location in locations | filter: locationFilter">
+                <p>{{location.locationName}}</p>
+                <md-checkbox
+                    ng-model="filters.projectDetails.address.location[location.locationId]"
+                    ng-init="filters.projectDetails.address.location[location.locationId] = local.projectDetails.address.location[location.locationId]"
+                    ng-false-value="null"
+                    class="md-secondary">
+                </md-checkbox>
+                <!--<md-input-container flex>
+                    <label>Locations</label>
+                    <md-select 
+                        ng-model="filters.projectDetails.address.location"
+                        ng-init="filters.projectDetails.address.location = local.projectDetails.address.location">
+                        <md-option
+                            ng-repeat="location in locations"
+                            ng-value="location.locationId">
+                            {{location.locationName}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>-->
+            </md-list-item>
+        </div>
+        <!--<md-list-item>
+            <md-input-container flex layout-align="center center">
+				<label>Address</label>
+				<input 
+					type="text" 
+					ng-model="filters.projectDetails.address" 
+					ng-init="filters.projectDetails.address = local.projectDetails.address" 
+					class="md-primary">
+			</md-input-container>
+        </md-list-item>-->
+        <md-subheader>Project Type</md-subheader>
+        <md-list-item>
+            <p>Apartment</p>
+            <md-checkbox
+                ng-false-value="null"
+                ng-model="filters.projectDetails.projectType.apartment"
+                ng-init="filters.projectDetails.projectType.apartment = local.projectDetails.projectType.apartment"
+                class="md-secondary">
+            </md-checkbox>
+        </md-list-item>
+        <md-list-item>
+            <p>Villa</p>
+            <md-checkbox
+                ng-false-value="null"
+                ng-model="filters.projectDetails.projectType.villa"
+                ng-init="filters.projectDetails.projectType.villa = local.projectDetails.projectType.villa"
+                class="md-secondary">
+            </md-checkbox>
+        </md-list-item>
+        <md-list-item>
+            <p>Row House</p>
+            <md-checkbox
+                ng-false-value="null"
+                ng-model="filters.projectDetails.projectType.rowHouse"
+                ng-init="filters.projectDetails.projectType.rowHouse = local.projectDetails.projectType.rowHouse"
+                class="md-secondary">
+            </md-checkbox>
+        </md-list-item>
+        <md-list-item>
+            <p>Studio Apartment</p>
+            <md-checkbox
+                ng-false-value="null"
+                ng-model="filters.projectDetails.projectType.studioApartment"
+                ng-init="filters.projectDetails.projectType.studioApartment = local.projectDetails.projectType.studioApartment"
+                class="md-secondary">
+            </md-checkbox>
+        </md-list-item>
+        <md-list-item>
+            <p>Serviced Apartment</p>
+            <md-checkbox
+                ng-false-value="null"
+                ng-model="filters.projectDetails.projectType.servicedApartment"
+                ng-init="filters.projectDetails.projectType.servicedApartment = local.projectDetails.projectType.servicedApartment"
+                class="md-secondary">
+            </md-checkbox>
+        </md-list-item>
+        <md-subheader></md-subheader>
+        <md-list-item>
+            <p>Car Parking</p>
+            <md-checkbox
+                ng-false-value="null"
+                ng-model="filters.projectDetails.carParking"
+                ng-init="filters.projectDetails.carParking = local.projectDetails.carParking"
+                class="md-secondary">
+            </md-checkbox>
+        </md-list-item>
+        <md-list-item>
+            <p>Vastu Compliant</p>
+            <md-checkbox
+                ng-false-value="null"
+                ng-model="filters.projectDetails.vastuCompliant"
+                ng-init="filters.projectDetails.vastuCompliant = local.projectDetails.vastuCompliant"
+                class="md-secondary">
+            </md-checkbox>
+        </md-list-item>
+        <md-button layout-align="center center" type="submit" class="md-raised md-primary">Apply</md-button>
+    </md-list>
+</form>

@@ -1,0 +1,21 @@
+<form ng-submit="applyFilter(filters, 'loc')" style="margin-top: 50px;">
+    <md-list layout="column">
+        <md-list-item>
+            <md-input-container class="md-block">
+                <label>Location Name</label>
+                <input type="text" name="name" ng-model="locationFilter">
+            </md-input-container>
+        </md-list-item>
+        <md-subheader>Locations</md-subheader>
+        <md-list-item ng-repeat="location in locationsTemp | filter: locationFilter">
+            <p>{{location.locationName}}</p>
+            <md-checkbox
+                ng-model="filters.loc[location.locationId]"
+                ng-init="filters.loc[location.locationId] = local.loc[location.locationId]"
+                ng-false-value="null"
+                class="md-secondary">
+            </md-checkbox>
+        </md-list-item>
+        <md-button layout-align="center center" type="submit" class="md-raised md-primary">Apply</md-button>
+    </md-list>
+</form>

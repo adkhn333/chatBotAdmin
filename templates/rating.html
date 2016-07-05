@@ -1,0 +1,10 @@
+<form name="ratingForm" layout="column" layout-padding ng-submit="applyFilter(filters, 'rating')">
+    <md-input-container>
+        <label>Select Rating</label>
+        <md-select ng-model="filters.rating" ng-init="filters.rating = local.rating">
+            <md-option ng-repeat="rate in ratings" ng-value="rate">{{rate}}</md-option>
+        </md-select>
+    </md-input-container>
+    <md-button type="submit" class="md-raised md-primary">Apply</md-button>
+    <md-button ng-click="clearForm('ratingForm', 'rating')" class="md-raised md-secondary">RESET</md-button>
+</form>

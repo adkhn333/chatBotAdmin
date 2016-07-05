@@ -1,0 +1,37 @@
+<form layout="column" layout-padding ng-submit="applyFilter(filters, 'other')">
+    <md-list>
+      <md-list-item>
+          <p>Power Backup</p>
+          <md-checkbox class="md-secondary"  
+            ng-false-value="null"
+            ng-model="filters.other.powerBackup" 
+            ng-init="filters.other.powerBackup = local.other.powerBackup" >
+          </md-checkbox>
+      </md-list-item>
+      <md-list-item>
+          <p>Maintenance</p>
+          <md-checkbox class="md-secondary"  
+            ng-false-value="null"
+            ng-model="filters.other.maintenance" 
+            ng-init="filters.other.maintenance = local.other.maintenance">
+          </md-checkbox>
+      </md-list-item>
+      <md-list-item>
+          <p>Pet Friendly</p>
+          <md-checkbox class="md-secondary" 
+            ng-false-value="null" 
+            ng-model="filters.other.petFriendly" 
+            ng-init="filters.other.petFriendly = local.other.petFriendly" >
+          </md-checkbox>     
+      </md-list-item>
+      <md-list-item>
+          <p>Wheelchair Friendly</p>
+          <md-checkbox class="md-secondary"  
+            ng-false-value="null"
+            ng-model="filters.other.wheelChairFriendly" 
+            ng-init="filters.other.wheelChairFriendly = local.other.wheelChairFriendly">
+          </md-checkbox>    
+      </md-list-item>
+    </md-list>                
+    <md-button  type="submit" class="md-raised md-primary md-block" >Apply</md-button>
+</form>

@@ -1,0 +1,116 @@
+ <!-- Your chat stars here -->
+
+                <!-- <div   ng-repeat="item in chat" class="chatstart" >
+
+                  <div ng-class="{{item.id}}=={{chkId}} ? 'chatClassOne' : 'chatClassTwo' ;"> 
+                      
+                      <img src="img/user.png" width="40" height="40" ng-if="item.id==chkId && item.id!=chat[$index-1].id ">
+                      <img src="img/admin.jpg" width="40" height="40" ng-if="item.id!=chkId && item.id!=chat[$index-1].id ">
+                      <p>{{item.msg}}</p>
+
+                  </div>
+           </div> -->
+
+
+
+
+           .chatstart{
+	margin-top:10px;
+
+}
+
+.chatClassOne{
+	width: 60%;
+	margin:10px 0px 0px 10px ;	
+	clear: right;
+	float: left;
+	border: 0px inset;
+	background-color: #F0F8FF;
+	border-radius: 5px;
+}
+.chatClassTwo{
+	width: 60%;
+	clear: left;
+	float:right;
+	margin:10px 10px 0px 0px;
+	border: 0px inset;
+	background-color: #F0F8FF;
+	border-radius: 5px;
+}
+
+.chatClassOne p{
+	margin-left: 30px;
+	margin-top: 10px;
+	text-align: left;
+}
+.chatClassTwo p{
+	margin-right: 30px;
+	margin-top: 10px;
+	text-align: right;
+}
+
+.chatClassOne img{
+	margin-top: -20px;
+	border: 1px solid black;
+	border-radius: 20px;
+}
+.chatClassTwo img{
+	float: right;
+	margin-top: -20px;
+	border: 1px solid black;
+	border-radius: 20px;
+}
+
+
+
+
+
+       <!--  <md-list  class="userList">
+          <md-item  class="md-2-line" ng-repeat="item in users">
+            <md-item-content>
+                  <h3  style="">{{item.name}}</h3>
+            </md-item-content>             
+          </md-item>
+        </md-list>
+ -->
+
+
+
+
+
+ <!-- <div class="propertyListing">
+          <img class="listingImage" src="http://blogs.intel.com/iot/files/2015/01/SmartBuilding.jpg" alt="Listing #1">
+          <div class="listingDetails">
+               Project - XYZ , Sector-42 Gurgaon <br> 
+                2,3,5 BHK Available <br>
+                20-27 Lacs <br>
+            <div class="listingIcons">
+              <ng-md-icon class="listingIcons" style="fill:#bbbbbb;" icon="room"  size="25"></ng-md-icon> 
+              <ng-md-icon class="listingIcons" icon="favorite"  size="25"></ng-md-icon> 
+            </div>
+          </div>                  
+        </div> -->
+
+
+ 
+.propertyListing{
+	width: 100%;
+	height: 20%;
+	background-color:#888888; 
+	border: 2px solid black;
+}
+.listingImage{
+	width: 20%;
+	height: 20%;
+	margin:1% 20px 0px 5px ;
+	float: left;
+	border-radius: 5px;
+}
+.listingIcons{
+	float: right;
+}
+.listingDetails{
+	margin-top: 20px;
+	line-height: 20px;
+
+}

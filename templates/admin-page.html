@@ -1,0 +1,107 @@
+<section flex layout="row" layout-xs="column">
+    <div flex-gt-sm=20 class="leftBlock">
+      <div class="userListControl" >
+      <div class="noStickyHeader" align="center">Users</div>
+      <div class="userList" >
+          <ul ng-repeat="item in users">
+            <li ng-class="{{item.status}}=={{statusId}}?'userItemActive':'userItemInactive';">
+              <a href="#" ng-click="changeUser($index)">{{item.name}}</a>
+              <h5 ng-if="item.id==curFlag && item.status!=2">chatting...</h5>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div flex-gt-sm=40  class="midBlock">
+        <div layout="column">
+          <div flex=60 class="upperMidBlock">
+              <!-- your chat starts here -->
+            <div class="noStickyHeader" align="center">Chats</div>
+                <div class="chatBox">
+                      <md-list >
+                        <md-item ng-repeat="item in chat">
+                          <md-item-content >
+                            <div ng-class="item.id=={{chkId}} ? 'abcone' : 'abctwo' ;">
+                              <img alt="{{ person.name }}" src="img/user.png" ng-if="item.id==chkId && item.id!=chat[$index-1].id " class="md-avatar"  />
+                              <img alt="{{ person.name }}" src="img/admin.png" ng-if="item.id!=chkId && item.id!=chat[$index-1].id " class="md-avatar" />
+                              <p>{{ item.msg }}</p>
+                            </div>
+                          </md-item-content>
+                        </md-item>
+                      </md-list>
+                </div>
+              <!-- your chat ends here -->
+          </div>          
+          <div flex=30 class="midMidBlock">
+            <div class="noStickyHeader" align="center">Suggestions</div>
+            <div  class="suggestionBox">
+              <ul class="suggestionList">
+                  <li class="suggestionItem" ng-repeat="item in suggestions">
+                    <a href="#" ng-click="saveChat(item)">{{item}}</a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+          <div flex=10>
+            <div  flex= class="chatinputbox" >
+                <form ng-submit="saveChat(msg)">
+                  <md-input-container md-no-float class="md-block">
+                    <input ng-model="msg" type="text" placeholder="Enter message here......" >
+                    <md-icon style="display:inline-block;color:#404055" ng-click="saveChat(msg)">send</md-icon>
+                  </md-input-container>
+                </form>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div flex class="rightBlock" >
+        <md-toolbar md-scroll-shrink>
+          <div class="md-toolbar-tools listingFilterBox" > 
+            <div style="width:90%;"></div>
+            <ng-md-icon  style="fill:white;" icon="swap_vert"  size="30"></ng-md-icon> 
+            <!--<ng-md-icon  style="fill:white;" icon="title"  size="30"></ng-md-icon> -->
+            <md-button class="md-fab md-primary" ng-click="toggleRight()">
+              <md-icon>menu</md-icon>
+            </md-button>
+            
+          </div>
+        </md-toolbar>
+        <div class="rightListingBlock">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch ng-repeat="item in listings">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">{{item.project}}</span>
+              <span class="md-subhead" >{{item.address}} <br> {{item.description}} <br>{{item.price}}</span>
+            </md-card-title-text>
+            <md-card-title-media>
+              <div class="md-media-lg card-media"><img  ng-src={{item.image}} alt="Listing #1"></div>
+            </md-card-title-media>
+          </md-card-title>
+          <md-card-actions layout="row" layout-align="end center">
+              <ng-md-icon class="listingIcons" style="fill:#ccaacc;" icon="room"  size="25"></ng-md-icon> 
+              <ng-md-icon class="listingIcons" style="fill:#ff8888;" icon="favorite"  size="25"></ng-md-icon>
+          </md-card-actions>
+        </md-card>
+        </div>
+        
+    </div>
+</section>
+<section>
+    <md-sidenav
+        class="md-sidenav-right"
+        md-component-id="right"
+        md-whiteframe="4dp">
+        <md-toolbar class="md-theme-light" layout="row">
+            <md-button
+                style="padding-top: 12px;"
+                ng-hide="filterTitle === 'Filters'"
+                ui-sref="/.filters"
+                class="md-icon-button">
+                <md-icon>menu</md-icon>
+            </md-button>
+            <h1 class="md-toolbar-tools">{{filterTitle}}</h1>
+        </md-toolbar>
+        <md-content ui-view="secondary-view">
+        </md-content>
+    </md-sidenav>
+</section>

@@ -1,0 +1,88 @@
+{
+    "city": {
+        "key1": {
+            "cityId": "key1",
+            "cityName": "Banglore"
+        },
+        "key2": {
+            "cityId": "key2",
+            "cityName": "Haryana"
+        }
+    },
+    "zone": {
+        "key1": {
+            "zkey1": {
+                "zoneId": "zkey1",
+                "zoneName": "North Banglore"
+            },
+            "zkey2": {
+                "zoneId": "zkey2",
+                "zoneName": "South Banglore"
+            }
+        },
+        "key2": {
+            "zkey3": {
+                "zoneId": "zkey3",
+                "zoneName": "North Haryana"
+            },
+            "zkey4": {
+                "zoneId": "zkey4",
+                "zoneName": "South Haryana"
+            }
+        }
+    },
+    "location": {
+        "key1": {
+            "lkey1": {
+                "locationId": "lkey1",
+                "locationName": "Location X Banglore",
+                "zoneId": "zkey1",
+                "zoneName": "North Banglore"
+            },
+            "lkey2": {
+                "locationId": "lkey2",
+                "locationName": "Location Y Banglore",
+                "zoneId": "zkey1",
+                "zoneName": "North Banglore"
+            },
+            "lkey3": {
+                "locationId": "lkey3",
+                "locationName": "Location XX Banglore",
+                "zoneId": "zkey2",
+                "zoneName": "South Banglore"
+            },
+            "lkey4": {
+                "locationId": "lkey4",
+                "locationName": "Location YY Banglore",
+                "zoneId": "zkey2",
+                "zoneName": "South Banglore"
+            }
+        },
+        "key2": {
+            "lkey5": {
+                "locationId": "lkey5",
+                "locationName": "Location A Haryana",
+                "zoneId": "zkey3",
+                "zoneName": "North Haryana"
+            },
+            "lkey6": {
+                "locationId": "lkey6",
+                "locationName": "Location B Haryana",
+                "zoneId": "zkey3",
+                "zoneName": "North Haryana"
+            },
+            "lkey7": {
+                "locationId": "lkey7",
+                "locationName": "Location AA Haryana",
+                "zoneId": "zkey4",
+                "zoneName": "South Haryana"
+            },
+            "lkey8": {
+                "locationId": "lkey8",
+                "locationName": "Location BB Haryana",
+                "zoneId": "zkey4",
+                "zoneName": "South Haryana"
+            }
+        }
+    }
+}

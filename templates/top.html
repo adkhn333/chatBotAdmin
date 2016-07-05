@@ -1,0 +1,10 @@
+<form name="topForm" layout="column" layout-padding ng-submit="applyFilter(filters, 'top')">
+    <md-input-container>
+        <label>Select Range</label>
+        <md-select ng-model="filters.top" ng-init="filters.top = local.top">
+            <md-option ng-repeat="range in ranges" ng-value="range">{{range}}</md-option>
+        </md-select>
+    </md-input-container>
+    <md-button type="submit" class="md-raised md-primary">Apply</md-button>
+    <md-button ng-click="clearForm('topForm', 'top')" class="md-raised md-secondary">RESET</md-button>
+</form>
