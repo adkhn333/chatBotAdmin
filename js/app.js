@@ -1,11 +1,14 @@
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyDA3UmmLXoiGh4RgwWEbYkigv7wWtqFQW8",
-    authDomain: "learningapp-ea02a.firebaseapp.com",
-    databaseURL: "https://learningapp-ea02a.firebaseio.com",
-    storageBucket: "learningapp-ea02a.appspot.com",
-};
-firebase.initializeApp(config);
+    apiKey: "AIzaSyArqlA_cCJTxECIE_8wn5HacT3k1eHMYVQ",
+    authDomain: "chatapp-3110c.firebaseapp.com",
+    databaseURL: "https://chatapp-3110c.firebaseio.com",
+    storageBucket: "chatapp-3110c.appspot.com",
+  };
+  firebase.initializeApp(config);
+
+ 
+
 var app = angular.module('chatApp',['ngMaterial','ngMdIcons', 'ui.router', 'ngStorage']);
 app.controller('mainCtrl', function($scope, $timeout, $mdSidenav,$localStorage,$http) {
     $scope.chkId=0;
@@ -15,17 +18,16 @@ app.controller('mainCtrl', function($scope, $timeout, $mdSidenav,$localStorage,$
     $scope.curFlag=0;
     $scope.chat=[];
     $scope.users=[];
+    $scope.listings=[];
+    $scope.projectIds=[];
+    $localStorage.msgs=0;
+    $scope.reply='';
+     var c=[];
+    var lastMsg;
     var uid=-1;   // fill this id with the id from local storage of current chat user
     var aid=1234;
 
-    // firebase.database().ref('/chats/'+uid).on("child_added",function(snapshot){
-    //     $timeout(function(){
-    //         $scope.chat.push(snapshot.val());
-    //     },50);    
-    // });
-
-   
-
+    
     $scope.saveChat=function(msg) {
         if(uid!=-1){
                 var curTime=new Date().getTime();
@@ -36,7 +38,7 @@ app.controller('mainCtrl', function($scope, $timeout, $mdSidenav,$localStorage,$
                     time:curTime
                 }
                 firebase.database().ref('/chats/'+uid+'/'+key).set(	
-                data,function(val){
+                    data,function(val){
                     if(val!=null){
                         console.log(val.message);
                     }else{
@@ -46,30 +48,13 @@ app.controller('mainCtrl', function($scope, $timeout, $mdSidenav,$localStorage,$
                     }
                 });
 
-                data['id']='';
-                data['msg']=msg;
-                data['operation']='buy';
-                var fltr = $scope.filters;
-                data['filters']={fltr};
+               
                 // console.log(data);
                 // $http.get('http://192.168.1.45/api/chatbot',data)
                 // .success(function(){
                 //   console.log("Submitted data");
                 // });
 
-            $http({
-            method: 'GET',
-            url: 'http://192.168.1.45/api/chatbot',
-            params: data
-            })
-            .then(function successCallback(response){
-                console.log(response);
-                $timeout(function(){
-                    $scope.suggestions=response.data.suggestions;
-                },500);
-            }, function errorCallback(response){
-                console.log(response);
-            });
 
             // $scope.suggestions=["Hi how are you!","are feeling good?"];
 
@@ -79,6 +64,73 @@ app.controller('mainCtrl', function($scope, $timeout, $mdSidenav,$localStorage,$
             $scope.msg="";
         }
     };
+    $scope.sendToApi=function(msg){
+        var data={};
+         data['id']='prirqlxu';
+        data['msg']=msg;
+        data['operation']='buy';
+        var fltr = $scope.filters;
+        data['filters']={fltr};
+         $http({
+            method: 'GET',
+            url: 'http://192.168.1.45/api/chatbot',
+            params: data
+        })
+        .then(function successCallback(response){
+            console.log(response);
+            $scope.listings=[];
+            $timeout(function(){
+                angular.forEach(response.data.projects,function(value,key){
+                    firebase.database().ref('/protectedResidential/9999/projects/'+value).once('value',function(snapshot){
+                        console.log(snapshot.val());
+                        var pT=snapshot.val();
+                        angular.forEach(snapshot.val().units,function(value,key){
+                            $scope.desc=value.configurations.propertyType;
+                            $scope.price=value.configurations.price;
+                        });
+                        var t={
+                            "id":value,
+                             "project":pT.projectDetails.projectName,
+                             "image":"http://blogs.intel.com/iot/files/2015/01/SmartBuilding.jpg",
+                             "address":pT.projectDetails.address.addressLine1+pT.projectDetails.address.addressLine2,
+                             "description":$scope.desc,
+                             "price": $scope.price
+                        }
+                        $timeout(function(){
+                            $scope.listings.push(t);
+                        },50);
+                        
+                    });
+                });
+                angular.forEach(response.data.suggestions,function(value,key){
+                    $scope.suggestions.push(value);
+                })
+            },500);
+        }, function errorCallback(response){
+            console.log(response);
+        });
+    };
+    $scope.sendToGeneric=function(msg){
+
+        $http({
+            method: 'GET',
+            url: 'http://192.168.1.45/api/generic_chat',
+            params: {
+                    msg:msg,
+                    operation : 'buy'
+            }
+        })
+        .then(function successCallback(response){
+            console.log(response);
+            $timeout(function(){
+                $scope.suggestions=[];
+                $scope.reply=response.data.reply;
+                $scope.suggestions.push(response.data.reply);
+            },500);
+        }, function errorCallback(response){
+            console.log(response);
+        });
+    };
     $scope.loadFirstChat=function(id){
         var checkStat=0;
         angular.forEach($localStorage.ids,function(value,key){
@@ -87,25 +139,8 @@ app.controller('mainCtrl', function($scope, $timeout, $mdSidenav,$localStorage,$
             }
         });
         if(uid!=-1 && checkStat!=1){
-
-            $http({
-            method: 'GET',
-            url: 'http://192.168.1.45/api/generic_chat',
-            params: {
-                    msg:"",
-                    operation : 'buy'
-                }
-            })
-            .then(function successCallback(response){
-                console.log(response);
-                $timeout(function(){
-                    $scope.suggestions=response.data.suggestions;
-                },500);
-            }, function errorCallback(response){
-                console.log(response);
-            });
-
-             $scope.saveChat("How may I help you!");
+            $scope.sendToGeneric("");
+            $scope.saveChat($scope.reply);
          }
     }
 
@@ -121,18 +156,32 @@ app.controller('mainCtrl', function($scope, $timeout, $mdSidenav,$localStorage,$
         firebase.database().ref('/chats/'+uid).on("child_added",function(snapshot){
             $timeout(function(){
                 $scope.chat.push(snapshot.val());
-                 var c=snapshot.val();
-             console.log(c);
+                var t=snapshot.val();
+                if(t.id==uid)
+                    $scope.sendLastMsg();
             },50);    
         });
     };
-
-
-    $scope.deleteItem = function (index) {
-        $scope.users.splice(index, 1);
-    }
-
-
+    firebase.database().ref('/chats/'+uid).on("child_added",function(snapshot){
+        $timeout(function(){
+            $scope.chat.push(snapshot.val());
+            var t=snapshot.val();
+            if(t.id==uid)
+                $scope.sendLastMsg();
+        },50);    
+    });
+    $scope.sendLastMsg=function(){
+        firebase.database().ref('/chats/'+uid).orderByChild('id').endAt(10).limitToLast(1).once("value",function(snapshot){
+            $timeout(function(){
+               c=snapshot.val();
+                angular.forEach(c, function(value, key) {
+                    $scope.sendToGeneric(value.msg);
+                    $scope.sendToApi(value.msg)
+                });
+            },50);    
+        });
+    };
+   
 	$scope.users=[
 		{
 			"id":"1",
@@ -172,52 +221,52 @@ app.controller('mainCtrl', function($scope, $timeout, $mdSidenav,$localStorage,$
 
 
 	];
-	$scope.listings=[
-		{
-			"id":"1",
-			"project":"xyz",
-			"image":"http://blogs.intel.com/iot/files/2015/01/SmartBuilding.jpg",
-			"address":" Sector-42 Gurgaon",
-			"description":"2,3,5 BHK Available ",
-			"price":"20-27 lacs"
-		},
+	// $scope.listings=[
+	// 	{
+	// 		"id":"1",
+	// 		"project":"xyz",
+	// 		"image":"http://blogs.intel.com/iot/files/2015/01/SmartBuilding.jpg",
+	// 		"address":" Sector-42 Gurgaon",
+	// 		"description":"2,3,5 BHK Available ",
+	// 		"price":"20-27 lacs"
+	// 	},
 
-		{
-			"id":"2",
-			"project":"stark tower",
-			"image":"http://www.asbbuildingcontractor.ae/images/building.png",
-			"address":" Sector-43 Gurgaon",
-			"description":"2,3 BHK Available ",
-			"price":"400 Cr"
-		},
+	// 	{
+	// 		"id":"2",
+	// 		"project":"stark tower",
+	// 		"image":"http://www.asbbuildingcontractor.ae/images/building.png",
+	// 		"address":" Sector-43 Gurgaon",
+	// 		"description":"2,3 BHK Available ",
+	// 		"price":"400 Cr"
+	// 	},
 
-		{
-			"id":"3",
-			"project":"hulk tower",
-			"image":"http://www.teamprofessional.co.in/images/building.png",
-			"address":" Sector-44 Gurgaon",
-			"description":"1,2,3,4 BHK Available ",
-			"price":"10 lacs"
-		},
+	// 	{
+	// 		"id":"3",
+	// 		"project":"hulk tower",
+	// 		"image":"http://www.teamprofessional.co.in/images/building.png",
+	// 		"address":" Sector-44 Gurgaon",
+	// 		"description":"1,2,3,4 BHK Available ",
+	// 		"price":"10 lacs"
+	// 	},
 
-		{
-			"id":"4",
-			"project":"bean buddy Tower",
-			"image":"http://pimg.tradeindia.com/02279179/b/2/extra-02279179.jpg",
-			"address":" Sector-45 Gurgaon",
-			"description":"1,2,3 BHK Available ",
-			"price":"30 lacs"
-		},
+	// 	{
+	// 		"id":"4",
+	// 		"project":"bean buddy Tower",
+	// 		"image":"http://pimg.tradeindia.com/02279179/b/2/extra-02279179.jpg",
+	// 		"address":" Sector-45 Gurgaon",
+	// 		"description":"1,2,3 BHK Available ",
+	// 		"price":"30 lacs"
+	// 	},
 
-		{
-			"id":"5",
-			"project":"Death Star",
-			"image":"http://blogs.intel.com/iot/files/2015/01/SmartBuilding.jpg",
-			"address":" Sector-46 Gurgaon",
-			"description":"1,2,3,4,5 BHK Available ",
-			"price":"20-27 lacs"
-		}
-	];
+	// 	{
+	// 		"id":"5",
+	// 		"project":"Death Star",
+	// 		"image":"http://blogs.intel.com/iot/files/2015/01/SmartBuilding.jpg",
+	// 		"address":" Sector-46 Gurgaon",
+	// 		"description":"1,2,3,4,5 BHK Available ",
+	// 		"price":"20-27 lacs"
+	// 	}
+	// ];
     $scope.toggleRight = function() {
         console.log('clickedd');
         $mdSidenav('right')
@@ -245,7 +294,7 @@ app.controller('filterCtrl',
     $scope.local = {};
     $scope.local.projectStatus = $localStorage.projectStatus;
     // $scope.filters.projectStatus = $localStorage.projectStatus;
-    $scope.local.loc = $localStorage.loc;
+    // $scope.local.loc = $localStorage.loc;
     $scope.local.clubHouse = $localStorage.clubHouse;
     $scope.local.cost = $localStorage.cost;
     $scope.local.configurations = $localStorage.configurations;
