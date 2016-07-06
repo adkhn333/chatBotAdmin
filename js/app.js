@@ -66,20 +66,21 @@ app.controller('mainCtrl', function($scope, $timeout, $mdSidenav,$localStorage,$
     };
     $scope.sendToApi=function(msg){
         var data={};
-         data['id']='prirqlxu';
+         data['id']='MsZrL9mtflPZYFwJ7YN3AhQTUlC2';
         data['msg']=msg;
         data['operation']='buy';
         var fltr = $scope.filters;
         data['filters']={fltr};
          $http({
             method: 'GET',
-            url: 'http://192.168.1.45/api/chatbot',
+            url: 'http://104.131.186.88/chatbot',
             params: data
         })
         .then(function successCallback(response){
             console.log(response);
             $scope.listings=[];
             $timeout(function(){
+                //getting project informations
                 angular.forEach(response.data.projects,function(value,key){
                     firebase.database().ref('/protectedResidential/9999/projects/'+value).once('value',function(snapshot){
                         console.log(snapshot.val());
@@ -88,6 +89,8 @@ app.controller('mainCtrl', function($scope, $timeout, $mdSidenav,$localStorage,$
                             $scope.desc=value.configurations.propertyType;
                             $scope.price=value.configurations.price;
                         });
+
+                        //creating temporary project object
                         var t={
                             "id":value,
                              "project":pT.projectDetails.projectName,
@@ -97,14 +100,18 @@ app.controller('mainCtrl', function($scope, $timeout, $mdSidenav,$localStorage,$
                              "price": $scope.price
                         }
                         $timeout(function(){
+                            //pushing that object to listings 
                             $scope.listings.push(t);
                         },50);
                         
                     });
                 });
+                //getting suggestions
                 angular.forEach(response.data.suggestions,function(value,key){
                     $scope.suggestions.push(value);
-                })
+                });
+                //getting filters
+                $scope.filters=response.data.filters;
             },500);
         }, function errorCallback(response){
             console.log(response);
@@ -114,7 +121,7 @@ app.controller('mainCtrl', function($scope, $timeout, $mdSidenav,$localStorage,$
 
         $http({
             method: 'GET',
-            url: 'http://192.168.1.45/api/generic_chat',
+            url: 'http://104.131.186.88/generic_chat',
             params: {
                     msg:msg,
                     operation : 'buy'
@@ -124,7 +131,6 @@ app.controller('mainCtrl', function($scope, $timeout, $mdSidenav,$localStorage,$
             console.log(response);
             $timeout(function(){
                 $scope.suggestions=[];
-                $scope.reply=response.data.reply;
                 $scope.suggestions.push(response.data.reply);
             },500);
         }, function errorCallback(response){

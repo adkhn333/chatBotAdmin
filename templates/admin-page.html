@@ -36,7 +36,7 @@
             <div class="noStickyHeader" align="center">Suggestions</div>
             <div  class="suggestionBox">
               <ul class="suggestionList">
-                  <li class="suggestionItem" ng-repeat="item in suggestions">
+                  <li class="suggestionItem" ng-repeat="item in suggestions track by $index">
                     <a href="#" ng-click="saveChat(item)">{{item}}</a>
                   </li>
               </ul>
