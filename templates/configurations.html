@@ -1,9 +1,9 @@
-<form layout="column" layout-padding ng-submit="applyFilter(filters, 'configurations')">
+<form name="configurationsForm" layout="column" layout-padding ng-submit="applyFilter(filters, 'configurations')">
 	<md-list layout="column">
         <md-list-item>
-			 <md-input-container>
+			 <md-input-container class="property-type-selectBox">
 				<label>Property Type</label>
-				<md-select 
+				<md-select
 					ng-model="filters.configurations.propertyType"
 					ng-init="filters.configurations.propertyType = local.configurations.propertyType">
 					<md-option
@@ -176,5 +176,6 @@
 			</md-checkbox>
         </md-list-item>
         <md-button layout-align="center center" type="submit" class="md-raised md-primary">Apply</md-button>
+		<md-button ng-click="clearForm('configurationsForm', 'configurations')" class="md-raised md-secondary">RESET</md-button>
     </md-list>
 </form>

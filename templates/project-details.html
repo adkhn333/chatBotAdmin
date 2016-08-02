@@ -1,44 +1,63 @@
-<form ng-submit="applyFilter(filters, 'projectDetails')">
+<form name="projectDetailsForm" ng-submit="applyFilter(filters, 'projectDetails')">
     <md-list layout="column">
         <md-list-item>
             <md-input-container flex layout-align="center center">
 				<label>Project Name</label>
 				<input 
 					type="text" 
-					ng-model="filters.projectDetails.projectName" 
-					ng-init="filters.projectDetails.projectName = local.projectDetails.projectName" 
+					ng-model="projectFilter"
 					class="md-primary">
 			</md-input-container>
         </md-list-item>
+        <div style="height: 200px; overflow-y: scroll">
+            <md-list-item flex ng-repeat="project in projects | customFilter: projectFilter: 'projectName'">
+                <p>{{project.projectName}}</p>
+                <md-checkbox
+                    ng-model="filters.projectDetails.projectId[project.projectId]"
+                    ng-init="filters.projectDetails.projectId[project.projectId] = local.projectDetails.projectId[project.projectId]"
+                    ng-false-value="null"
+                    class="md-secondary">
+                </md-checkbox>
+            </md-list-item>
+        </div>
         <md-list-item>
             <md-input-container flex layout-align="center center">
 				<label>Builder</label>
 				<input 
 					type="text" 
-					ng-model="filters.projectDetails.builder" 
-					ng-init="filters.projectDetails.builder = local.projectDetails.builder" 
+					ng-model="builderFilter"
 					class="md-primary">
 			</md-input-container>
         </md-list-item>
+        <div style="height: 200px; overflow-y: scroll">
+            <md-list-item flex ng-repeat="builder in builders | customFilter: builderFilter: 'builderName'">
+                <p>{{builder.builderName}}</p>
+                <md-checkbox
+                    ng-model="filters.projectDetails.builderId[builder.builderId]"
+                    ng-init="filters.projectDetails.builderId[builder.builderId] = local.projectDetails.builderId[builder.builderId]"
+                    ng-false-value="null"
+                    class="md-secondary">
+                </md-checkbox>
+            </md-list-item>
+        </div>
         <md-subheader>Address</md-subheader>
         <md-list-item>
 			 <md-input-container flex>
 				<label>City</label>
-				<md-select 
+				<md-select
 					ng-model="filters.projectDetails.address.city"
                     ng-init="filters.projectDetails.address.city = local.projectDetails.address.city"
                     >
 					<md-option
 						ng-repeat="city in cities"
                         ng-value="city.cityId"
-                        ng-click="fillZonesAndLocations(city.cityId)"
                         >
 						{{city.cityName}}
 					</md-option>
 				</md-select>
 			 </md-input-container>
         </md-list-item>
-        <md-subheader>Zone</md-subheader>
+        <!--<md-subheader>Zone</md-subheader>
         <md-list-item>
             <md-input-container flex class="md-block">
                 <label>Zone Name</label>
@@ -68,8 +87,8 @@
                         </md-option>
                     </md-select>
                 </md-input-container>-->
-            </md-list-item>
-        </div>
+            <!--</md-list-item>
+        </div>-->
         <md-subheader>Location</md-subheader>
         <md-list-item>
             <md-input-container flex class="md-block">
@@ -77,28 +96,30 @@
                 <input type="text" name="name" ng-model="locationFilter">
             </md-input-container>
         </md-list-item>
-        <div style="height: 100px; overflow-y: scroll">
-            <md-list-item flex ng-repeat="location in locations | filter: locationFilter">
-                <p>{{location.locationName}}</p>
-                <md-checkbox
-                    ng-model="filters.projectDetails.address.location[location.locationId]"
-                    ng-init="filters.projectDetails.address.location[location.locationId] = local.projectDetails.address.location[location.locationId]"
-                    ng-false-value="null"
-                    class="md-secondary">
-                </md-checkbox>
-                <!--<md-input-container flex>
-                    <label>Locations</label>
-                    <md-select 
-                        ng-model="filters.projectDetails.address.location"
-                        ng-init="filters.projectDetails.address.location = local.projectDetails.address.location">
-                        <md-option
-                            ng-repeat="location in locations"
-                            ng-value="location.locationId">
-                            {{location.locationName}}
-                        </md-option>
-                    </md-select>
-                </md-input-container>-->
-            </md-list-item>
+        <div style="height: 200px; overflow-y: scroll">
+            <div ng-repeat="(key,value) in locations">
+                <md-list-item flex ng-repeat="location in value | customFilter: locationFilter: 'locationName' | customFilter: filters.projectDetails.address.city: 'cityId'">
+                    <p>{{location.locationName}}</p>
+                    <md-checkbox
+                        ng-model="filters.projectDetails.address.location[location.locationId]"
+                        ng-init="filters.projectDetails.address.location[location.locationId] = local.projectDetails.address.location[location.locationId]"
+                        ng-false-value="null"
+                        class="md-secondary">
+                    </md-checkbox>
+                    <!--<md-input-container flex>
+                        <label>Locations</label>
+                        <md-select 
+                            ng-model="filters.projectDetails.address.location"
+                            ng-init="filters.projectDetails.address.location = local.projectDetails.address.location">
+                            <md-option
+                                ng-repeat="location in locations"
+                                ng-value="location.locationId">
+                                {{location.locationName}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>-->
+                </md-list-item>
+            </div>
         </div>
         <!--<md-list-item>
             <md-input-container flex layout-align="center center">
@@ -176,5 +197,6 @@
             </md-checkbox>
         </md-list-item>
         <md-button layout-align="center center" type="submit" class="md-raised md-primary">Apply</md-button>
+        <md-button ng-click="clearForm('projectDetailsForm', 'projectDetails')" class="md-raised md-secondary">RESET</md-button>
     </md-list>
 </form>

@@ -25,6 +25,7 @@
                               <img alt="{{ person.name }}" src="img/user.png" ng-if="item.id==chkId && item.id!=chat[$index-1].id " class="md-avatar"  />
                               <img alt="{{ person.name }}" src="img/admin.png" ng-if="item.id!=chkId && item.id!=chat[$index-1].id " class="md-avatar" />
                               <p>{{ item.msg }}</p>
+                              <p class="time">{{item.time | date : 'hh:mm:ss'}}</p>
                             </div>
                           </md-item-content>
                         </md-item>
@@ -60,7 +61,9 @@
             <div style="width:90%;"></div>
             <ng-md-icon  style="fill:white;" icon="swap_vert"  size="30"></ng-md-icon> 
             <!--<ng-md-icon  style="fill:white;" icon="title"  size="30"></ng-md-icon> -->
-            <md-button class="md-fab md-primary" ng-click="toggleRight()">
+            <md-button
+              class="md-fab md-primary filter-menu-button" 
+              ng-click="toggleRight()">
               <md-icon>menu</md-icon>
             </md-button>
             
@@ -91,15 +94,14 @@
         class="md-sidenav-right"
         md-component-id="right"
         md-whiteframe="4dp">
-        <md-toolbar class="md-theme-light" layout="row">
+        <md-toolbar class="md-theme-light" layout="row" layout-align="start center">
             <md-button
-                style="padding-top: 12px;"
                 ng-hide="filterTitle === 'Filters'"
                 ui-sref="/.filters"
                 class="md-icon-button">
-                <md-icon>menu</md-icon>
+                <md-icon>arrow_back</md-icon>
             </md-button>
-            <h1 class="md-toolbar-tools">{{filterTitle}}</h1>
+            <h1 class="md-toolbar-tools">{{filterTitle | camelCaseToHuman}}</h1>
         </md-toolbar>
         <md-content ui-view="secondary-view">
         </md-content>

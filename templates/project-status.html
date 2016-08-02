@@ -5,7 +5,7 @@
             <md-checkbox
                 ng-false-value="null"
                 ng-model="filters.projectStatus.underConstruction"
-                ng-init="filters.projectStatus.underConstruction"
+                ng-init="filters.projectStatus.underConstruction = local.projectStatus.underConstruction"
                 class="md-secondary">
             </md-checkbox>
         </md-list-item>
@@ -14,7 +14,7 @@
             <md-checkbox
                 ng-false-value="null"
                 ng-model="filters.projectStatus.readyToMove"
-                ng-init="filters.projectStatus.readyToMove"
+                ng-init="filters.projectStatus.readyToMove =  local.projectStatus.readyToMove"
                 class="md-secondary">
             </md-checkbox>
         </md-list-item>

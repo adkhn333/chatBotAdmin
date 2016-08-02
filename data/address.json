@@ -37,25 +37,33 @@
                 "locationId": "lkey1",
                 "locationName": "Location X Banglore",
                 "zoneId": "zkey1",
-                "zoneName": "North Banglore"
+                "zoneName": "North Banglore",
+                "cityId": "key1",
+                "cityName": "Banglore"
             },
             "lkey2": {
                 "locationId": "lkey2",
                 "locationName": "Location Y Banglore",
                 "zoneId": "zkey1",
-                "zoneName": "North Banglore"
+                "zoneName": "North Banglore",
+                "cityId": "key1",
+                "cityName": "Banglore"
             },
             "lkey3": {
-                "locationId": "lkey1",
+                "locationId": "lkey3",
                 "locationName": "Location XX Banglore",
                 "zoneId": "zkey2",
-                "zoneName": "South Banglore"
+                "zoneName": "South Banglore",
+                "cityId": "key1",
+                "cityName": "Banglore"
             },
             "lkey4": {
-                "locationId": "lkey2",
+                "locationId": "lkey4",
                 "locationName": "Location YY Banglore",
                 "zoneId": "zkey2",
-                "zoneName": "South Banglore"
+                "zoneName": "South Banglore",
+                "cityId": "key1",
+                "cityName": "Banglore"
             }
         },
         "key2": {
@@ -63,26 +71,575 @@
                 "locationId": "lkey5",
                 "locationName": "Location A Haryana",
                 "zoneId": "zkey3",
-                "zoneName": "North Haryana"
+                "zoneName": "North Haryana",
+                "cityId": "key2",
+                "cityName": "Haryana"
             },
             "lkey6": {
                 "locationId": "lkey6",
                 "locationName": "Location B Haryana",
                 "zoneId": "zkey3",
-                "zoneName": "North Haryana"
+                "zoneName": "North Haryana",
+                "cityId": "key2",
+                "cityName": "Haryana"
             },
             "lkey7": {
                 "locationId": "lkey7",
                 "locationName": "Location AA Haryana",
                 "zoneId": "zkey4",
-                "zoneName": "South Haryana"
+                "zoneName": "South Haryana",
+                "cityId": "key2",
+                "cityName": "Haryana"
             },
             "lkey8": {
                 "locationId": "lkey8",
                 "locationName": "Location BB Haryana",
                 "zoneId": "zkey4",
-                "zoneName": "South Haryana"
+                "zoneName": "South Haryana",
+                "cityId": "key2",
+                "cityName": "Haryana"
             }
+        }
+    },
+    "protectedResidential" : {
+        "1234" : {
+        "projects" : {
+            "-KLM7oSec08uu9nlwNpG" : {
+            "1-1" : {
+                "buy" : true,
+                "clubhouse" : {
+                "gym" : true,
+                "miniTheatre" : true,
+                "spa" : true,
+                "videoGames" : true
+                },
+                "connectivity" : {
+                "autoStand" : {
+                    "distance" : "2000"
+                }
+                },
+                "costing" : {
+                "cookingChargeOneMeal" : true,
+                "cookingChargeTwoMeals" : true,
+                "moveOutCharges" : true
+                },
+                "homeDelivery" : {
+                "isp" : {
+                    "-KLM8Kqqzqm6nZIOWwar" : {
+                    "contact" : 7894561230,
+                    "name" : "ajay"
+                    }
+                }
+                },
+                "other" : {
+                "airConditioningInWaitingLounge" : true,
+                "maintenance" : true,
+                "pharmacy" : true,
+                "powerBackup" : true,
+                "waitingLoungeInTower" : true
+                },
+                "projectDetails" : {
+                "address" : {
+                    "cityId" : 1234,
+                    "cityName" : "Gurgaon",
+                    "landmark" : "abc",
+                    "locations" : {
+                    "lkey1" : {
+                        "locationId" : "lkey1",
+                        "locationName" : "hyderabad"
+                    },
+                    "lkey2" : {
+                        "locationId" : "lkey2",
+                        "locationName" : "banglore"
+                    }
+                    },
+                    "zoneId" : 5678,
+                    "zoneName" : "Sohna Road"
+                },
+                "approvedBankLoans" : {
+                    "axis" : true,
+                    "hdfc" : true
+                },
+                "builderId" : 789,
+                "builderName" : "BCD",
+                "carParking" : true,
+                "projectName" : "ajay",
+                "projectType" : {
+                    "rowHouse" : true,
+                    "villa" : true
+                },
+                "visitorCarParking" : true
+                },
+                "projectId" : "-KLM7oSec08uu9nlwNpG",
+                "projectStatus" : "Ready To Move",
+                "rwa" : {
+                "contactName" : "abc"
+                },
+                "security" : {
+                "mainGate" : {
+                    "guards" : true
+                },
+                "tagsFroVehicles" : true,
+                "tower" : {
+                    "accessControlled" : true
+                }
+                },
+                "societyShops" : {
+                "parlour" : {
+                    "-KLM8ClJVMPH0bM_KwXn" : {
+                    "contact" : "7894561230",
+                    "name" : "abc"
+                    }
+                }
+                },
+                "sportsActivities" : {
+                "amphitheatre" : true,
+                "badminton" : true,
+                "football" : true,
+                "volleyball" : true
+                },
+                "status" : "editable",
+                "units" : {
+                "-KLM8bUBTFNcDbv2HZOd" : {
+                    "specification" : {
+                    "homeAutomation" : true,
+                    "showerCubical" : true,
+                    "vrvAirConditioning" : true
+                    }
+                }
+                },
+                "versionCreatedBy" : 12345,
+                "versionCreatedTime" : 1467119519595
+            },
+            "1-2" : {
+                "clubHouse" : {
+                "aerobicsRooms" : "asd",
+                "bar" : "asd",
+                "businessCentre" : "asd",
+                "cafe" : "asd",
+                "danceRoom" : "asd",
+                "guestrooms" : "asd",
+                "gym" : "asd",
+                "jacuzzi" : "asd",
+                "kidsZone" : "asd",
+                "miniTheatre" : "asd",
+                "multiPurposeHall" : "asd",
+                "musicRoom" : "asd",
+                "operatingTimes" : {
+                    "end" : "asd",
+                    "holiday" : "asd",
+                    "start" : "asd"
+                },
+                "restaurant" : "asd",
+                "salon" : "asd",
+                "saunaRoom" : "asd",
+                "spa" : "asd",
+                "steamRoom" : "asd",
+                "videoGames" : "asd",
+                "yogaRoom" : "asd"
+                },
+                "connectivity" : {
+                "airport" : {
+                    "distance" : "asd",
+                    "lat" : "asd",
+                    "long" : "asd",
+                    "offpeakTime" : "asd",
+                    "peakTime" : "asd"
+                },
+                "autoStand" : {
+                    "distance" : "asd",
+                    "lat" : "asd",
+                    "long" : "asd"
+                },
+                "busStand" : {
+                    "distance" : "asd",
+                    "lat" : "asd",
+                    "long" : "asd",
+                    "offpeakTime" : "asd",
+                    "peakTime" : "asd"
+                },
+                "cabStand" : {
+                    "distance" : "asd",
+                    "lat" : "asd",
+                    "long" : "asd"
+                },
+                "expresswayDistance" : "asd",
+                "mainRoadDistance" : "asd",
+                "metroStation" : {
+                    "distance" : "asd",
+                    "lat" : "asd",
+                    "long" : "asd",
+                    "offpeakTime" : "asd",
+                    "peakTime" : "asd"
+                },
+                "nearestExpressway" : "asd",
+                "nearestMainRoad" : "asd",
+                "railwayStation" : {
+                    "distance" : "asd",
+                    "lat" : "asd",
+                    "long" : "asd",
+                    "offpeakTime" : "asd",
+                    "peakTime" : "asd"
+                }
+                },
+                "costing" : {
+                "carWashCharges" : "asd",
+                "cleaningUtensilsOneTime" : "asd",
+                "cleaningUtensilsTwoTime" : "asd",
+                "cookingChargeOneMeal" : "asd",
+                "cookingChargeTwoMeals" : "asd",
+                "maid12Hours" : "asd",
+                "maid24Hours" : "asd",
+                "maintenanceChargesFixed" : "asd",
+                "maintenanceChargesVariable" : "asd",
+                "moveInCharges" : "asd",
+                "moveOutCharges" : "asd",
+                "powerBackupCharges" : "asd"
+                },
+                "homeDelivery" : {
+                "cableProvider" : {
+                    "id1" : {
+                    "contact" : "asd",
+                    "name" : "asd"
+                    }
+                },
+                "grocery" : {
+                    "id1" : {
+                    "contact" : "asd",
+                    "name" : "asd"
+                    }
+                },
+                "isp" : {
+                    "id1" : {
+                    "contact" : "asd",
+                    "name" : "asd"
+                    }
+                },
+                "laundry" : {
+                    "id1" : {
+                    "contact" : "asd",
+                    "name" : "asd"
+                    }
+                },
+                "milkman" : {
+                    "id1" : {
+                    "contact" : "asd",
+                    "name" : "asd"
+                    }
+                },
+                "newspaperDelivery" : {
+                    "id1" : {
+                    "contact" : "asd",
+                    "name" : "asd"
+                    }
+                },
+                "parlour" : {
+                    "id1" : {
+                    "contact" : "asd",
+                    "name" : "asd"
+                    }
+                },
+                "pharmacy" : {
+                    "id1" : {
+                    "contact" : "asd",
+                    "name" : "asd"
+                    }
+                },
+                "restaurant" : {
+                    "id1" : {
+                    "contact" : "asd",
+                    "name" : "asd"
+                    }
+                }
+                },
+                "other" : {
+                "airConditioningInWaitingLounge" : "asd",
+                "atm" : "asd",
+                "bank" : "asd",
+                "daycare" : "asd",
+                "grocery" : "asd",
+                "laundry" : "asd",
+                "maintenance" : "asd",
+                "park" : "asd",
+                "parlour" : "asd",
+                "petFriendly" : "asd",
+                "pharmacy" : "asd",
+                "playSchool" : "asd",
+                "powerBackup" : "asd",
+                "waitingLoungeInTower" : "asd",
+                "wheelchairFriendly" : "asd"
+                },
+                "projectDetails" : {
+                "address" : {
+                    "addressLine1" : "asd",
+                    "addressLine2" : "asd",
+                    "cityId" : "asd",
+                    "cityName" : "asd",
+                    "landmark" : "asd",
+                    "lat" : "asd",
+                    "lng" : "asd",
+                    "locations" : {
+                    "locationId" : {
+                        "locationId" : "asd",
+                        "locationName" : "asd"
+                    }
+                    },
+                    "pincode" : "asd",
+                    "zone" : "asd",
+                    "zoneId" : "asd"
+                },
+                "approvedBankLoans" : {
+                    "AxisBank" : "asd",
+                    "HDFC" : "asd"
+                },
+                "builderId" : "asd",
+                "builderName" : "asd",
+                "carParking" : "asd",
+                "floors" : {
+                    "max" : "asd",
+                    "min" : "asd"
+                },
+                "greenArea" : "asd",
+                "landArea" : "asd",
+                "lifts" : {
+                    "max" : "asd",
+                    "min" : "asd"
+                },
+                "partners" : {
+                    "architect" : {
+                    "name" : "asd",
+                    "website" : "asd"
+                    },
+                    "constructionCompany" : {
+                    "name" : "asd",
+                    "website" : "asd"
+                    },
+                    "landscapeDesigner" : {
+                    "name" : "asd",
+                    "website" : "asd"
+                    }
+                },
+                "projectName" : "asd",
+                "projectType" : {
+                    "apartment" : "asd",
+                    "rowHouse" : "asd",
+                    "servicedApartment" : "asd",
+                    "studio" : "asd",
+                    "villa" : "asd"
+                },
+                "totalTowers" : "asd",
+                "totalUnits" : "asd",
+                "vastuCompliant" : "asd",
+                "visitorCarParking" : "asd"
+                },
+                "projectId" : "-KLM7oSec08uu9nlwNpG",
+                "rwa" : {
+                "contactName" : "asd",
+                "contactNumber" : "asd",
+                "emailAddress" : "asd",
+                "rules" : "asd"
+                },
+                "security" : {
+                "mainGate" : {
+                    "boomBarriers" : "asd",
+                    "cctv" : "asd",
+                    "guards" : "asd",
+                    "intercom" : "asd"
+                },
+                "numberOfEntryOrExitPoints" : "asd",
+                "stickersForVehicles" : "asd",
+                "tagsForVehicles" : "asd",
+                "tower" : {
+                    "accessControlled" : "asd",
+                    "cctv" : "asd",
+                    "guard" : "asd"
+                },
+                "videoDoorPhone" : "asd",
+                "workerClearance" : "asd",
+                "workerPass" : "asd"
+                },
+                "societyShops" : {
+                "grocery" : {
+                    "id1" : {
+                    "contact" : "asd",
+                    "name" : "asd"
+                    },
+                    "id2" : {
+                    "contact" : "asd",
+                    "name" : "asd"
+                    }
+                },
+                "parlour" : {
+                    "id1" : {
+                    "contact" : "asd",
+                    "name" : "asd"
+                    },
+                    "id2" : {
+                    "contact" : "asd",
+                    "name" : "asd"
+                    }
+                },
+                "pharmacy" : {
+                    "id1" : {
+                    "contact" : "asd",
+                    "name" : "asd"
+                    },
+                    "id2" : {
+                    "contact" : "asd",
+                    "name" : "asd"
+                    }
+                }
+                },
+                "sportsActivities" : {
+                "amphitheatre" : "asd",
+                "badminton" : "asd",
+                "basketball" : "asd",
+                "bowlingAlley" : "asd",
+                "cricket" : "asd",
+                "football" : "asd",
+                "joggingTrack" : "asd",
+                "kidsPlayAreas" : "asd",
+                "kidsSwimmingPool" : "asd",
+                "multiPurposeCourt" : "asd",
+                "pitchAndPutt" : "asd",
+                "poolTable" : "asd",
+                "skatingRink" : "asd",
+                "snookerTable" : "asd",
+                "squash" : "asd",
+                "swimmingPool" : "asd",
+                "tableTennis" : "asd",
+                "tennis" : "asd",
+                "volleyball" : "asd"
+                },
+                "units" : {
+                "id1" : {
+                    "configurations" : {
+                    "carpetArea" : "asd",
+                    "familyLounge" : "asd",
+                    "kitchen" : "asd",
+                    "price" : "asd",
+                    "propertyType" : "asd",
+                    "pujaRoom" : "asd",
+                    "servantRoom" : "asd",
+                    "storeRoom" : "asd",
+                    "studyRoom" : "asd",
+                    "superArea" : "asd",
+                    "totalBalconies" : "asd",
+                    "totalBedrooms" : "asd",
+                    "totalHalls" : "asd",
+                    "totalWashrooms" : "asd",
+                    "type" : "asd"
+                    },
+                    "specifications" : {
+                    "airConditioning" : "asd",
+                    "bathTub" : "asd",
+                    "flooringLivingDining" : "asd",
+                    "flooringMasterBedrooms" : "asd",
+                    "flooringOtherBedrooms" : "asd",
+                    "fullyFurnished" : "asd",
+                    "homeAutomation" : "asd",
+                    "jacuzzi" : "asd",
+                    "kitchenAppliances" : "asd",
+                    "kitchenChimney" : "asd",
+                    "kitchenDishWasher" : "asd",
+                    "kitchenHob" : "asd",
+                    "kitchenMicrowaveOven" : "asd",
+                    "kitchenModular" : "asd",
+                    "kitchenOTG" : "asd",
+                    "kitchenRefrigerator" : "asd",
+                    "showerCubicle" : "asd",
+                    "vrvAirConditioning" : "asd",
+                    "wardrobes" : "asd"
+                    }
+                },
+                "id2" : {
+                    "configurations" : {
+                    "carpetArea" : "asd",
+                    "familyLounge" : "asd",
+                    "kitchen" : "asd",
+                    "price" : "asd",
+                    "propertyType" : "asd",
+                    "pujaRoom" : "asd",
+                    "servantRoom" : "asd",
+                    "storeRoom" : "asd",
+                    "studyRoom" : "asd",
+                    "superArea" : "asd",
+                    "totalBalconies" : "asd",
+                    "totalBedrooms" : "asd",
+                    "totalHalls" : "asd",
+                    "totalWashrooms" : "asd",
+                    "type" : "asd"
+                    },
+                    "specifications" : {
+                    "airConditioning" : "asd",
+                    "bathTub" : "asd",
+                    "flooringLivingDining" : "asd",
+                    "flooringMasterBedrooms" : "asd",
+                    "flooringOtherBedrooms" : "asd",
+                    "fullyFurnished" : "asd",
+                    "homeAutomation" : "asd",
+                    "jacuzzi" : "asd",
+                    "kitchenAppliances" : "asd",
+                    "kitchenChimney" : "asd",
+                    "kitchenDishWasher" : "asd",
+                    "kitchenHob" : "asd",
+                    "kitchenMicrowaveOven" : "asd",
+                    "kitchenModular" : "asd",
+                    "kitchenOTG" : "asd",
+                    "kitchenRefrigerator" : "asd",
+                    "showerCubicle" : "asd",
+                    "vrvAirConditioning" : "asd",
+                    "wardrobes" : "asd"
+                    }
+                }
+                }
+            }
+            }
+        }
+        }
+    },
+    "builders": {
+        "bID1": {
+            "builderId": "bID1", 
+            "builderName": "Builder 1"
+        },
+        "bID2": {
+            "builderId": "bID2", 
+            "builderName": "Builder 2"
+        },
+        "bID3": {
+            "builderId": "bID3", 
+            "builderName": "Builder 3"
+        },
+        "bID4": {
+            "builderId": "bID4", 
+            "builderName": "Builder 4"
+        },
+        "bID5": {
+            "builderId": "bID5", 
+            "builderName": "Builder 5"
+        }
+    },
+    "projects": {
+        "pID1": {
+            "projectId": "pID1", 
+            "projectName": "Project 1"
+        },
+        "pID2": {
+            "projectId": "pID2", 
+            "projectName": "Project 2"
+        },
+        "pID3": {
+            "projectId": "pID3", 
+            "projectName": "Project 3"
+        },
+        "pID4": {
+            "projectId": "pID4", 
+            "projectName": "Project 4"
+        },
+        "pID5": {
+            "projectId": "pID5", 
+            "projectName": "Project 5"
         }
     }
 }

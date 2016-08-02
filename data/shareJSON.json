@@ -1,0 +1,148 @@
+{
+    "city": {
+        "key1": {
+            "cityId": "key1",
+            "cityName": "Banglore"
+        },
+        "key2": {
+            "cityId": "key2",
+            "cityName": "Haryana"
+        }
+    },
+    "zone": {
+        "key1": {
+            "zkey1": {
+                "zoneId": "zkey1",
+                "zoneName": "North Banglore"
+            },
+            "zkey2": {
+                "zoneId": "zkey2",
+                "zoneName": "South Banglore"
+            }
+        },
+        "key2": {
+            "zkey3": {
+                "zoneId": "zkey3",
+                "zoneName": "North Haryana"
+            },
+            "zkey4": {
+                "zoneId": "zkey4",
+                "zoneName": "South Haryana"
+            }
+        }
+    },
+    "location": {
+        "key1": {
+            "lkey1": {
+                "locationId": "lkey1",
+                "locationName": "Location X Banglore",
+                "zoneId": "zkey1",
+                "zoneName": "North Banglore",
+                "cityId": "key1",
+                "cityName": "Banglore"
+            },
+            "lkey2": {
+                "locationId": "lkey2",
+                "locationName": "Location Y Banglore",
+                "zoneId": "zkey1",
+                "zoneName": "North Banglore",
+                "cityId": "key1",
+                "cityName": "Banglore"
+            },
+            "lkey3": {
+                "locationId": "lkey3",
+                "locationName": "Location XX Banglore",
+                "zoneId": "zkey2",
+                "zoneName": "South Banglore",
+                "cityId": "key1",
+                "cityName": "Banglore"
+            },
+            "lkey4": {
+                "locationId": "lkey4",
+                "locationName": "Location YY Banglore",
+                "zoneId": "zkey2",
+                "zoneName": "South Banglore",
+                "cityId": "key1",
+                "cityName": "Banglore"
+            }
+        },
+        "key2": {
+            "lkey5": {
+                "locationId": "lkey5",
+                "locationName": "Location A Haryana",
+                "zoneId": "zkey3",
+                "zoneName": "North Haryana",
+                "cityId": "key2",
+                "cityName": "Haryana"
+            },
+            "lkey6": {
+                "locationId": "lkey6",
+                "locationName": "Location B Haryana",
+                "zoneId": "zkey3",
+                "zoneName": "North Haryana",
+                "cityId": "key2",
+                "cityName": "Haryana"
+            },
+            "lkey7": {
+                "locationId": "lkey7",
+                "locationName": "Location AA Haryana",
+                "zoneId": "zkey4",
+                "zoneName": "South Haryana",
+                "cityId": "key2",
+                "cityName": "Haryana"
+            },
+            "lkey8": {
+                "locationId": "lkey8",
+                "locationName": "Location BB Haryana",
+                "zoneId": "zkey4",
+                "zoneName": "South Haryana",
+                "cityId": "key2",
+                "cityName": "Haryana"
+            }
+        }
+    },
+    "builders": {
+        "bID1": {
+            "builderId": "bID1", 
+            "builderName": "Builder 1"
+        },
+        "bID2": {
+            "builderId": "bID2", 
+            "builderName": "Builder 2"
+        },
+        "bID3": {
+            "builderId": "bID3", 
+            "builderName": "Builder 3"
+        },
+        "bID4": {
+            "builderId": "bID4", 
+            "builderName": "Builder 4"
+        },
+        "bID5": {
+            "builderId": "bID5", 
+            "builderName": "Builder 5"
+        }
+    },
+    "projects": {
+        "pID1": {
+            "projectId": "pID1", 
+            "projectName": "Project 1"
+        },
+        "pID2": {
+            "projectId": "pID2", 
+            "projectName": "Project 2"
+        },
+        "pID3": {
+            "projectId": "pID3", 
+            "projectName": "Project 3"
+        },
+        "pID4": {
+            "projectId": "pID4", 
+            "projectName": "Project 4"
+        },
+        "pID5": {
+            "projectId": "pID5", 
+            "projectName": "Project 5"
+        }
+    }
+}

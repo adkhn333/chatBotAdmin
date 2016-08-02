@@ -1,3 +1,5 @@
+//  Backup Of app.js
+
 $scope.applyProjectStatusFilter = function(obj) {
         $localStorage.projectStatus = obj;
         console.log(obj);
